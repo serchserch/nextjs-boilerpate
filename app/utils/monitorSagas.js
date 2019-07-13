@@ -7,5 +7,5 @@ export default function monitorSagas(store) {
   each(store.injectedSagas, (saga) => {
     allTasks.push(saga.task);
   });
-  return Promise.all(allTasks.map((t) => t.done));
+  return Promise.all(allTasks.map(t => t.toPromise()));
 }
